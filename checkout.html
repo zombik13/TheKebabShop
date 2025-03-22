@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizează comanda</title> 
+    <link rel="stylesheet" href="style-1.css">
+</head>
+<body>
+    <img src="photo/Group 2.png" alt="Background de sus" class="top-image">
+    <h2>Completează datele pentru comandă</h2>
+    
+    <div class="container-wrapper">
+        <div id="cartItems">
+            <h3>Produse comandate:</h3>
+            <!-- Produsele din coș vor fi afișate aici -->
+        </div>
+        
+        <form id="orderForm" action="index.php" method="post">
+            <label for="nume">Nume și prenume:</label>
+            <input type="text" id="nume" name="nume" required>
+    
+            <label for="telefon">Număr de telefon:</label>
+            <input type="tel" id="telefon" name="telefon" required>
+
+            <div class="sector-options" id="sectorFields">
+                <label>Sector:</label>
+                <label><input type="radio" name="sector" value="riscanovca" data-price="50" required> Rîșcani - 50 MDL</label>
+                <label><input type="radio" name="sector" value="ciocana" data-price="75"> Ciocana - 75 MDL</label>
+                <label><input type="radio" name="sector" value="botanica" data-price="90"> Botanica - 90 MDL</label>
+                <label><input type="radio" name="sector" value="telecentru" data-price="90"> Telecentru - 90 MDL</label>
+                <label><input type="radio" name="sector" value="buiucani" data-price="100"> Buiucani - 100 MDL</label>
+            </div>
+    
+            <div id="deliveryFields">
+                <!-- Câmpuri pentru livrare -->
+                <label for="adresa">Adresă:</label>
+                <input type="text" id="adresa" name="adresa" required>
+
+                <label for="bloc">Bloc:</label>
+                <input type="text" id="bloc" name="bloc">
+    
+                <label for="apartament">Apartament:</label>
+                <input type="text" id="apartament" name="apartament">
+    
+                <label for="etaj">Etaj:</label>
+                <input type="text" id="etaj" name="etaj">
+    
+                <label for="interfon">Interfon:</label>
+                <input type="text" id="interfon" name="interfon">
+            </div>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <!-- Metoda de livrare -->
+            <label>Metoda de livrare:</label>
+            <div class="delivery-options">
+                <label class="delivery-label">
+                    <input type="radio" name="metoda_livrare" value="livrare" checked onchange="toggleDeliveryFields()">
+                    <span class="custom-radio"></span>
+                    Livrare
+                </label>
+                <label class="delivery-label">
+                    <input type="radio" name="metoda_livrare" value="ridicare" onchange="toggleDeliveryFields()">
+                    <span class="custom-radio"></span>
+                    Ridicare personală
+                </label>
+            </div>
+
+            <!-- Metoda de plată -->
+            <label>Metoda de plată:</label>
+            <div class="payment-options">
+                <label class="payment-label">
+                    <input type="radio" name="metoda_plata" value="card" checked>
+                    <span class="custom-radio"></span>
+                    Card
+                </label>
+                <label class="payment-label">
+                    <input type="radio" name="metoda_plata" value="cash">
+                    <span class="custom-radio"></span>
+                    Cash
+                </label>
+            </div>
+
+            <input type="hidden" name="cartData" id="cartData">
+            <button type="submit">Trimite comanda</button>
+        </form>
+    </div>
+
+    <script>
+        // Funcția care va ascunde câmpurile de livrare și sectoarele atunci când se selectează "Ridicare personală"
+        function toggleDeliveryFields() {
+            var metodaLivrare = document.querySelector('input[name="metoda_livrare"]:checked').value;
+            var deliveryFields = document.getElementById('deliveryFields');
+            var sectorFields = document.getElementById('sectorFields');
+
+            if (metodaLivrare === 'ridicare') {
+                // Ascundem câmpurile de livrare și sectoarele
+                deliveryFields.style.visibility = 'hidden'; 
+                deliveryFields.style.opacity = '0';
+                deliveryFields.style.position = 'absolute'; // Menținem câmpurile în layout, dar invizibile
+
+                sectorFields.style.visibility = 'hidden'; 
+                sectorFields.style.opacity = '0';
+                sectorFields.style.position = 'absolute'; // Menținem sectoarele în layout, dar invizibile
+            } else {
+                // Facem câmpurile vizibile
+                deliveryFields.style.visibility = 'visible'; 
+                deliveryFields.style.opacity = '1';
+                deliveryFields.style.position = 'static'; // Revin la comportamentul normal
+
+                sectorFields.style.visibility = 'visible'; 
+                sectorFields.style.opacity = '1';
+                sectorFields.style.position = 'static'; // Revin la comportamentul normal
+            }
+        }
+
+        // Apelăm funcția la încărcarea paginii pentru a seta starea câmpurilor de livrare și sectoarelor
+        window.onload = toggleDeliveryFields;
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function displayCart() {
+            let cartItemsDiv = document.getElementById("cartItems");
+            cartItemsDiv.innerHTML = "<h3>Produse comandate:</h3>";
+
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML += "<p>Coșul de cumpărături este gol!</p>";
+                return;
+            }
+
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                let itemTotal = item.price * (item.quantity || 1);
+                total += itemTotal;
+
+                let cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+
+                cartItem.innerHTML = `
+                    <div class="cart-item-details">
+                        <span class="item-name">${item.name}</span> - 
+                        <span class="item-price">${item.price} MDL</span>
+                        <button class="quantity-btn decrease" data-index="${index}">-</button>
+                        <span class="item-quantity">${item.quantity || 1}</span>
+                        <button class="quantity-btn increase" data-index="${index}">+</button>
+                    </div>
+                    <button class="remove-btn" data-index="${index}">Șterge</button>
+                `;
+
+                cartItemsDiv.appendChild(cartItem);
+            });
+
+            // Adăugăm prețul livrării la totalul comenzii
+            const deliveryPrice = getDeliveryPrice(); // Obținem prețul livrării pe baza sectorului selectat
+            total += deliveryPrice;
+
+            let totalElement = document.createElement("p");
+            totalElement.innerHTML = `<strong>Total comanda: ${total} MDL (Livrare: ${deliveryPrice} MDL)</strong>`;
+            cartItemsDiv.appendChild(totalElement);
+
+            document.getElementById("cartData").value = JSON.stringify(cart);
+
+            addEventListeners();
+        }
+
+        // Funcție pentru a adăuga evenimente la butoanele de modificare cantitate și ștergere
+        function addEventListeners() {
+            document.querySelectorAll('.quantity-btn.decrease').forEach(btn => {
+                btn.addEventListener('click', () => changeQuantity(btn.dataset.index, -1));
+            });
+
+            document.querySelectorAll('.quantity-btn.increase').forEach(btn => {
+                btn.addEventListener('click', () => changeQuantity(btn.dataset.index, 1));
+            });
+
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', () => removeFromCart(btn.dataset.index));
+            });
+        }
+
+        // Funcție pentru a modifica cantitatea unui produs
+        function changeQuantity(index, change) {
+            index = Number(index);
+            if (cart[index]) {
+                let newQuantity = cart[index].quantity + change;
+                if (newQuantity >= 1 && newQuantity <= 20) {
+                    cart[index].quantity = newQuantity;
+                    updateCart();
+                }
+            }
+        }
+
+        // Funcție pentru a șterge un produs din coș
+        function removeFromCart(index) {
+            index = Number(index);
+            if (cart[index]) {
+                cart.splice(index, 1);
+                updateCart();
+            }
+        }
+
+        // Funcție pentru a obține prețul livrării pe baza sectorului selectat
+        function getDeliveryPrice() {
+            const sectorRadios = document.querySelectorAll('input[name="sector"]');
+            let deliveryPrice = 0;
+
+            sectorRadios.forEach(radio => {
+                if (radio.checked) {
+                    deliveryPrice = parseFloat(radio.dataset.price); // Obținem prețul livrării asociat sectorului
+                }
+            });
+
+            return deliveryPrice;
+        }
+
+        // Funcție pentru a actualiza coșul și a-l salva în Local Storage
+        function updateCart() {
+            localStorage.setItem("cart", JSON.stringify(cart));
+            displayCart();
+        }
+
+        // Eveniment pentru selectarea sectorului
+        document.querySelectorAll('input[name="sector"]').forEach(radio => {
+            radio.addEventListener('change', updateCart); // Actualizează coșul atunci când se selectează un sector
+        });
+
+        // Vizualizează coșul la încărcarea paginii
+        window.onload = displayCart;
+
+    </script>
+    <img src="photo/Group41.png" alt="Background de jos" class="bottom-image">
+</body>
+</html>
