@@ -1,0 +1,85 @@
+/* Containerul pentru secțiuni */
+.section-container {
+    margin-top: 40px;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Flexbox pentru secțiuni, pentru a permite trecerea pe un nou rând și alinierea corectă */
+#burgerSection, #kebabSection, #salataSection, #cartofiSection, #bowlSection, #deserturiSection, #bauturiSection {
+    display: flex;
+    flex-wrap: wrap; /* Permite trecerea pe un nou rând */
+    gap: 20px; /* Adăugăm spațiu între elemente */
+    justify-content: flex-start; /* Alinierea produselor pe rândul nou la stânga */
+}
+
+/* Fiecare item de produs */
+.product-item {
+    background-color:#8C1864; /* Culoare fundal pentru produse */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white; /* Culoare text */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Umbra pentru produse */
+    transition: transform 0.3s ease; /* Efect de tranziție pentru mărire */
+}
+
+/* Efect de hover */
+.product-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Imaginea produsului */
+.product-item img {
+    width: 150px; /* Imaginea va ocupa 100% din lățimea containerului */
+    height: 150px; /* Setăm o înălțime fixă */
+    object-fit: cover; /* Asigurăm că imaginea se va redimensiona corect */
+    border-radius: 12px;
+    background-color: #F4A261; /* Portocaliu deschis */
+    padding: 10px;
+}
+
+/* Titlul produsului */
+.product-item h4 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Descrierea produsului */
+.product-item p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+/* Butonul de adăugare în coș */
+.product-item button {
+    background-color: #f4a261;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efect de hover pentru buton */
+.product-item button:hover {
+    background-color: #c0392b;
+}
+
+
+
+/* Se asigură alinierea corectă pe rândul nou */
+.product-item:nth-child(4n+1) {
+    margin-left: 0;
+}

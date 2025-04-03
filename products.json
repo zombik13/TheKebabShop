@@ -1,0 +1,31 @@
+{
+    "kebab": [
+      {
+        "name": "Kebab de pui",
+        "price": 90,
+        "image": "img/KebabDePui.png",
+        "description": "500 gr."
+      },
+      {
+        "name": "Beef Kebab",
+        "price": 110,
+        "image": "img/BeefKebab.png",
+        "description": "500 gr."
+      }
+    ],
+    "burger": [
+      {
+        "name": "Texas Burger",
+        "price": 95,
+        "image": "img/Texas Burger.png",
+        "description": "350 gr."
+      },
+      {
+        "name": "Cheeseburger",
+        "price": 95,
+        "image": "img/Chessburger.png",
+        "description": "350 gr."
+      }
+    ]
+  }
+  

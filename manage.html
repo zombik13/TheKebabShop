@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionare Produse</title>
+    <link rel="stylesheet" href="manage.css">
+</head>
+<body>
+    <h1>Gestionare Produse</h1>
+
+    <!-- Formular pentru adăugare/editare produs -->
+    <div class="form-container">
+        <h2>Adaugă sau Editează un Produs</h2>
+        <form id="addProductForm" enctype="multipart/form-data">
+            <input type="hidden" id="productId">
+
+            <label for="name">Nume produs:</label>
+            <input type="text" id="name" required><br><br>
+
+            <label for="price">Preț:</label>
+            <input type="number" id="price" required><br><br>
+
+            <label for="description">Descriere:</label>
+            <textarea id="description" required></textarea><br><br>
+
+            <label for="inStock">În stoc:</label>
+            <select id="inStock">
+                <option value="1">Da</option>
+                <option value="0">Nu</option>
+            </select><br><br>
+
+            <label for="section">Alege secțiunea:</label>
+            <select id="section" required>
+                <option value="burger">Burger</option>
+                <option value="kebab">Kebab</option>
+                <option value="salata">Salată</option>
+                <option value="cartofi">Cartofi Pai, Nuggets, Aripioare</option>
+                <option value="bowl">Bowl</option>
+                <option value="bauturi">Băuturi</option>
+                <option value="deserturi">Deserturi</option>
+                <option value="cafea">Cafea</option>
+            </select><br><br>
+
+            <!-- Câmp pentru încărcarea imaginii -->
+            <label for="image">Alege o imagine:</label>
+            <input type="file" id="image" name="image" accept="image/*"><br><br>
+
+            <button type="submit">Salvează produs</button>
+        </form>
+    </div>
+
+    <!-- Secțiunile pentru produse -->
+    <div class="section-container">
+        <h2>Burger</h2> <div id="burgerSection"></div>
+        <h2>Kebab</h2> <div id="kebabSection"></div>
+        <h2>Salată</h2> <div id="salataSection"></div>
+        <h2>Cartofi Pai, Nuggets, Aripioare</h2> <div id="cartofiSection"></div>
+        <h2>Bowl</h2> <div id="bowlSection"></div>
+        <h2>Băuturi</h2> <div id="bauturiSection"></div>
+        <h2>Deserturi</h2> <div id="deserturiSection"></div>
+        <h2>Cafea</h2> <div id="cafeaSection"></div>
+    </div>
+
+    <script src="manage.js"></script>
+</body>
+</html>

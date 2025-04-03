@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <img src="img/Group 2.png" alt="Image Description" class="header-image"> <!-- Imaginea de sus -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width ,initial-scale=1.0"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+
+
+</head>
+
+<body>
+    
+    <div class="overlay" style="display: none;"></div> <!-- Element pentru fundal -->
+    <nav>
+        <a href="index.html">
+        <img src="img/LOGO.png" alt="Logo" class="logo"> <!-- Imaginea în stânga -->
+    </a>
+        <button class="burger-menu">=</button>
+        <button  class="buton-meniu" onclick="location.href='#kebab'">Kebab </button>
+        <button  class="buton-meniu" onclick="location.href='#Burger'">Burger </button>
+        <button  class="buton-meniu" onclick="location.href='#Salate'">Salate </button>
+        <button  class="buton-meniu" onclick="location.href='#Cartofi'">Cartofi </button>
+        <button  class="buton-meniu" onclick="location.href='#Deserturi'">Deserturi </button>
+        <button  class="buton-meniu" onclick="location.href='#Bauturi'">Bauturi </button>
+        <button class="toggle-cart" id="toggle-cart">Coș</button>
+    </nav>
+    <!-- Blocul Informativ cu Imagini -->
+<div class="info-block">
+
+    
+    <div class="info-section">
+        <div class="info-header">
+            <h2></h2>
+        </div>
+        <div class="info-body">
+            <p></p>
+    
+            <div class="image-container">
+                <p class="aaa">Cel mai bun Kebab</p>
+                
+            </div>
+            
+        </div>
+        <div class="info-footer">
+            <div class="info-images">
+                <p>Mulțumim că ne vizitezi!</p>
+            </div>
+        </div>
+    </div>
+    
+   
+</div>
+
+    <!--pentru cart-->
+    <div class="cart-container" id="cart" style="display: none;">
+        <h2>Coș de Cumpărături</h2>
+        <ul class="cart-items">
+            <!-- Elementele coșului vor fi adăugate aici -->
+        </ul>
+        <div class="cart-total">
+            <strong>Total:</strong> <span id="total">0.00</span> MDL
+        </div>
+        <button id="close-cart">X</button>
+        <button id="empty-cart">Golește coșul</button>
+        <a href="checkout.html">
+            <button>Finalizează comanda</button>
+        </a>
+    </div>
+
+    <!-- Secțiunea Meniu -->
+
+    <div class="menu">
+        <h1>Meniu</h1>
+    </div>
+
+    <!-- Secțiunea Kebab -->
+    <div class="products">
+        <h2 id="kebab">Kebab</h2>
+        <div class="products-container">
+            <div class="product" >
+                <img src="img/KebabDePui.png" alt="kebab-pui" width="150px"class="product-image">
+                <div class="product-info">
+                    <h4>Kebab de pui</h4>
+                    <p>Preț: 90 MDL</p>
+                    <h5>500 gr.</h5>
+                    <button onclick="addToCart('Kebab de pui', 90)">Adaugă în Coș</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/BeefKebab.png" alt="Beef Kebab" width="150px"class="product-image">
+                <div class="product-info">
+                    <h4>Beef Kebab</h4>
+                    <p>Preț: 110 MDL</p>
+                    <h5>500 gr.</h5>
+                    <button onclick="addToCart('Beef Kebab', 110)">Adaugă în Coș</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/KebabDePorc.png" alt="Kebab De Porc" width="150px"class="product-image">
+                <h4>Pork Kebab</h4>
+                <p>Preț: 100 MDL</p>
+                <h5>500 gr.</h5>
+                <button onclick="addToCart('Kebab De Porc', 100)">Adaugă în Coș</button>
+            </div>
+            <div class="product">
+                <img src="img/SchoolCombo.png" alt="SchoolCombo" width="150px"class="product-image">
+                <h4>School Combo</h4>
+                <p>Preț: 90 MDL</p>
+                <h5>380 gr./100 gr.</h5>
+                <button onclick="addToCart('School Combo', 90)">Adaugă în Coș</button>
+            </div>
+            <div class="product">
+                <img src="img/ComboDePui.png" alt="ComboDePui" width="150px"class="product-image">
+                <h4>Combo de pui</h4>
+                <p>Preț: 140 MDL</p>
+                <h5>500 gr./100 gr./40gr.</h5>
+                <button onclick="addToCart('Combo De Pui', 140)">Adaugă în Coș</button>
+            </div>
+            <div class="product">
+                <img src="img/BeefCombo.png" alt="BeefCombo" width="150px"class="product-image">
+                <h4>Combo Beef</h4>
+                <p>Preț: 160 MDL</p>
+                <h5>500 gr./100 gr./40gr.</h5>
+                <button onclick="addToCart('Combo Beef', 160)">Adaugă în Coș</button>
+            </div>
+            <div class="product">
+                <img src="img/PorkCombo.png" alt="PorkCombo" width="150px"class="product-image">
+                <h4>Combo Pork</h4>
+                <p>Preț: 150 MDL</p>
+                <h5>500 gr./100 gr./40gr.</h5>
+                <button onclick="addToCart('Combo Pork ', 150)">Adaugă în Coș</button>
+            </div>
+            <div class="product">
+                <img src="img/kebab 1kg.png" alt="kebab 1kg" width="150px"class="product-image">
+                <h4>Kebab De Pui 1KG</h4>
+                <p>Preț: 160 MDL</p>
+                <button onclick="addToCart('Kebab De Pui 1KG', 160)">Adaugă în Coș</button>
+            </div>
+            <div class="product">
+                <img src="img/ScoolKebab.png" alt="ScoolKebab" width="150px"class="product-image">
+                <h4>School Kebab</h4>
+                <p>Preț: 60 MDL</p>
+                <h5>380 gr.</h5>
+                <button onclick="addToCart('School Kebab', 60)">Adaugă în Coș</button>
+            </div>
+            <div class="add-ons">
+                <h3>Adaugă la kebab:</h3>
+                <div class="sauces">
+                    <div class="sauce">
+                        <h4>Pui 100 gr. (20 MDL)</h4>
+                        <button onclick="addToCart('Pui 100 gr.', 20)">+</button>
+                    </div>
+                    <div class="sauce">
+                        <h4>Pork 100 gr. (45 MDL)</h4>
+                        <button onclick="addToCart('Pork 100 gr.', 45)">+</button>
+                    </div>
+                    <div class="sauce">
+                        <h4>Vită 100 gr. (50 MDL)</h4>
+                        <button onclick="addToCart('Vită 100 gr.', 50)">+</button>
+                    </div>
+                    <div class="sauce">
+                        <h4>Cașcaval 40 gr. (14 MDL)</h4>
+                        <button onclick="addToCart('Cașcaval 40 gr.', 14)">+</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+        <!-- Secțiunea Burger -->
+        <div class="products">
+            <h2 id="Burger">Burger</h2>
+            <div class="products-container">
+                <div class="product">
+                    <img src="img/Texas Burger.png" alt="Texas Burger" width="150px"class="product-image">
+                    <h4>Texas Burger</h4>
+                    <p>Preț: 95 MDL</p>
+                    <h5>350 gr.</h5>
+                    <button onclick="addToCart('Texas Burger ', 95)">Adaugă în Coș</button>
+                </div>
+                <div class="product">
+                    <img src="img/Chessburger.png" alt="Cheeseburger" width="150px"class="product-image">
+                    <h4>Cheeseburger</h4>
+                    <p>Preț: 95 MDL</p>
+                    <h5>350 gr.</h5>
+                    <button onclick="addToCart('Cheeseburger', 95)">Adaugă în Coș</button>
+                </div>
+                <div class="product">
+                    <img src="img/Steak Burger.png" alt="Steak Burger" width="150px"class="product-image">
+                    <h4>Steak Burger</h4>
+                    <p>Preț: 110 MDL</p>
+                    <h5>350 gr.</h5>
+                    <button onclick="addToCart('Steak Burger', 110)">Adaugă în Coș</button>
+                </div>
+                <div class="product">
+                    <img src="img/Double Texas Burger.png" alt="Double Texas Burger" width="150px"class="product-image">
+                    <h4>Double Texas Burger</h4>
+                    <p>Preț: 125 MDL</p>
+                    <h5>450 gr.</h5> 
+                    <button onclick="addToCart('Double Texas Burger', 125)">Adaugă în Coș</button>
+                </div>
+                <div class="product">
+                    <img src="img/Double Chessburger.png" alt="Double Cheeseburger" width="150px"class="product-image">
+                    <h4>Double Cheeseburger</h4>
+                    <p>Preț: 125 MDL</p>
+                    <h5>450 gr.</h5>
+                    <button onclick="addToCart('Double Cheeseburger', 125)">Adaugă în Coș</button>
+                </div>
+                <div class="product">
+                    <img src="img/Double Steak Burger.png" alt="Double Steak Burger" width="150px"class="product-image">
+                    <h4>Double Steak Burger</h4>
+                    <p>Preț: 150 MDL</p>
+                    <h5>450 gr.</h5>
+                    <button onclick="addToCart('Double Steak Burger', 150)">Adaugă în Coș</button>
+                </div>
+                <div class="product">
+                    <img src="img/Combo Texas Burger.png" alt="Combo Texas Burger" width="150px"class="product-image">
+                    <h4>Combo Texas Burger</h4>
+                    <p>Preț: 140 MDL</p>
+                    <h5>350 gr./100 gr./40 gr.</h5>
+                    <button onclick="addToCart('Combo Texas Burger', 140)">Adaugă în Coș</button>
+                </div>
+                <div class="product">
+                    <img src="img/Combo Chessburger.png" alt="Combo Cheeseburger" width="150px"class="product-image">
+                    <h4>Combo Cheeseburger</h4>
+                    <p>Preț: 140 MDL</p>
+                    <h5>350 gr./100 gr./40 gr.</h5>
+                    <button onclick="addToCart('Combo Cheeseburger', 140)">Adaugă în Coș</button>
+                </div>
+                <div class="product">
+                    <img src="img/Combo Steak Burger.png" alt="Combo Steak Burger" width="150px"class="product-image">
+                    <h4>Combo Steak Burger</h4>
+                    <p>Preț: 160 MDL</p>
+                    <h5>350 gr./100 gr./40 gr.</h5>
+                    <button onclick="addToCart('Combo Steak Burger', 160)">Adaugă în Coș</button>
+                </div>
+    
+                <div class="add-ons">
+                    <h3>Adaugă sosuri:</h3>
+                    <div class="sauces">
+                        <div class="sauce">
+                            <h4>Aioli (15 MDL)</h4>
+                            <button onclick="addToCart('Aioli', 15)">+</button>
+                        </div>
+                        <div class="sauce">
+                            <h4>BBQ (15 MDL)</h4>
+                            <button onclick="addToCart('BBQ', 15)">+</button>
+                        </div>
+                        <div class="sauce">
+                            <h4>Cezar (15 MDL)</h4>
+                            <button onclick="addToCart('Cezar', 15)">+</button>
+                        </div>
+                        <div class="sauce">
+                            <h4>Maioneză (15 MDL)</h4>
+                            <button onclick="addToCart('Maioneză', 15)">+</button>
+                        </div>
+                        <div class="sauce">
+                            <h4>Muștar (15 MDL)</h4>
+                            <button onclick="addToCart('Muștar', 15)">+</button>
+                        </div>
+                        <div class="sauce">
+                            <h4>Chimichurri (20 MDL)</h4>
+                            <button onclick="addToCart('Chimichurri', 20)">+</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    <!-- Secțiunea Salate -->
+    <div class="products">
+        <h2 id="Salate">Salate</h2>
+        <div class="products-container">
+            <div class="product">
+                <img src="img/beef salat.png" alt="Beef Salat" width="150px" class="product-image">
+                <h4>Beef Salat</h4>
+                <p>Preț: 130 MDL</p>
+                <h5>300 gr.</h5>
+                <button onclick="addToCart('Beef Salat', 130)">Adaugă în Coș</button>
+            </div>
+            <div class="product">
+                <img src="img/salt gaina.png" alt="Chichen Salat" width="150px"class="product-image">
+                <h4>Chichen Salat</h4>
+                <p>Preț: 90 MDL</p>
+                <h5>380 gr.</h5>
+                <button onclick="addToCart('Chichen Salat', 90)">Adaugă în Coș</button>
+            </div> 
+            <div class="product">
+                <img src="img/fresh salat.png" alt="Fresh Salat" width="150px"class="product-image">
+                <h4>Fresh Salat</h4>
+                <p>Preț: 50 MDL</p>
+                <h5>250 gr.</h5>
+                <button onclick="addToCart('Fresh Salat', 50)">Adaugă în Coș</button>
+            </div>
+        </div>
+    </div>
+
+     <!-- Secțiunea Cartofi Pai,Nuggets,aripioare -->
+     <div class="products">
+        <h2 id="Cartofi"> Cartofi Pai,Nuggets,aripioare</h2>
+        <div class="products-container">
+            <div class="product">
+                <img src="img/cartofipai.png" alt="Cartofi Pai" width="150px"class="product-image">
+                <h4>Cartofi Pai</h4>
+                <p>Preț: 35 MDL</p>
+                <h5>100 gr./40 gr.</h5>
+                <button onclick="addToCart('Cartofi Pai', 35)">Adaugă în Coș</button>
+            </div>
+            <div class="product">
+                <img src="img/cartofiRustic.png" alt="Cartofi Rustic" width="150px"class="product-image">
+                <h4>Cartofi Rustic</h4>
+                <p>Preț: 35 MDL</p>
+                <h5>180 gr.</h5>
+                <button onclick="addToCart('Cartofi Rustic', 35)">Adaugă în Coș</button>
+            </div>
+            <div class="product">
+                <img src="img/nuggetsgaina.png" alt="Chichen Nuggets" width="150px"class="product-image">
+                <h4>Chichen Nuggets</h4>
+                <p>Preț: 69 MDL</p>
+                <h5>180 gr./40 gr.</h5>
+                <button onclick="addToCart('Chichen Nuggets', 69)">Adaugă în Coș</button>
+            </div>
+            <div class="product">
+                <img src="img/cheeseNugets.png" alt="Cheese Nuggets" width="150px"class="product-image">
+                <h4>Cheese Nuggets</h4>
+                <p>Preț: 60 MDL</p>
+                <h5>180 gr./40 gr.</h5>
+                <button onclick="addToCart('Cheese Nuggets', 60)">Adaugă în Coș</button>
+            </div>
+            <div class="product">
+                <img src="img/aripioarePui.png" alt="kebab-pui" width="150px" class="product-image">
+                <h4>Aripioare De Pui</h4>
+                <p>Preț: 60 MDL</p>
+                <h5>180 gr./40 gr.</h5>
+                <button onclick="addToCart('Aripioare De Pui', 60)">Adaugă în Coș</button>
+            </div>
+        </div>
+    </div>
+
+        <!-- Secțiunea Bowl -->
+        <div class="products">
+            <h2>Bowl</h2>
+            <div class="products-container">
+                <div class="product">
+                    <img src="img/bowl gaina.png" alt="Chichen Bowl" width="150px"class="product-image">
+                    <h4>Chichen Bowl</h4>
+                    <p>Preț: 95 MDL</p>
+                    <h5>350 gr.</h5>
+                    <button onclick="addToCart('Chichen Bowl', 95)">Adaugă în Coș</button>
+                </div>
+                <div class="product">
+                    <img src="img/pork bowl.png" alt="kebab-pui" width="150px"class="product-image">
+                    <h4>Pork Bowl</h4>
+                    <p>Preț: 160 MDL</p>
+                    <h5>350 gr.</h5>
+                    <button onclick="addToCart('Salată 2', 10)">Adaugă în Coș</button>
+                </div>
+                <div class="product">
+                    <img src="img/fich chips.png" alt="kebab-pui" width="150px"class="product-image">
+                    <h4>Fish & Chips</h4>
+                    <p>Preț: 140 MDL</p>
+                    <h5>280 gr.</h5>
+                    <button onclick="addToCart('Salată 3', 10)">Adaugă în Coș</button>
+                </div>
+            </div>
+        </div>
+ <!-- bauturi -->
+ <div class="products">
+    <h2 id="Bauturi"> bauturi </h2>
+    <div class="products-container">
+  <div class="product">
+    <img src="img/shveps.webp" alt="kebab-pui" width="150px">
+    <h4>Schwappes</h4>
+    <p>Preț: 35 MDL</p>
+    <h5>100 gr./40 gr.</h5>
+    <button onclick="addToCart('Schwappes', 35)">Adaugă în Coș</button>
+</div>
+<div class="product">
+    <img src="img/cola.jpg" alt="kebab-pui" width="150px">
+    <h4>Cola</h4>
+    <p>Preț: 35 MDL</p>
+    <h5>180 gr.</h5>
+    <button onclick="addToCart('Cola', 35)">Adaugă în Coș</button>
+</div>
+<div class="product">
+    <img src="img/burn.jpg" alt="kebab-pui" width="150px">
+    <h4>Burn</h4>
+    <p>Preț: 69 MDL</p>
+    <h5>180 gr./40 gr.</h5>
+    <button onclick="addToCart('Burn', 69)">Adaugă în Coș</button>
+</div>
+<div class="product">
+    <img src="img/fanta.jpg" alt="kebab-pui" width="150px">
+    <h4>Fanta</h4>
+    <p>Preț: 35 MDL</p>
+    <h5>180 gr./40 gr.</h5>
+    <button onclick="addToCart('Fanta', 35)">Adaugă în Coș</button>
+</div>
+<div class="product">
+    <img src="img/sprite.jpg" alt="kebab-pui" width="150px">
+    <h4>Sprite</h4>
+    <p>Preț: 35 MDL</p>
+    <h5>180 gr./40 gr.</h5>
+    <button onclick="addToCart('Sprite', 35)">Adaugă în Coș</button>
+</div>
+<div class="product">
+    <img src="img/pulpi.jpg" alt="kebab-pui" width="150px">
+    <h4>Pulpi</h4>
+    <p>Preț: 35 MDL</p>
+    <h5>180 gr./40 gr.</h5>
+    <button onclick="addToCart('Pulpi ', 35)">Adaugă în Coș</button>
+</div>
+<div class="product">
+    <img src="img/nastea.jpg" alt="kebab-pui" width="150px">
+    <h4>Nestea</h4>
+    <p>Preț: 20 MDL</p>
+    <h5>180 gr./40 gr.</h5>
+    <button onclick="addToCart('Nestea', 10)">Adaugă în Coș</button>
+</div>
+<div class="product">
+    <img src="img/airan.jpg" alt="kebab-pui" width="150px">
+    <h4>Airan</h4>
+    <p>Preț: 60 MDL</p>
+    <h5>180 gr./40 gr.</h5>
+    <button onclick="addToCart('Băutură 5', 10)">Adaugă în Coș</button>
+</div>
+<div class="product">
+    <img src="img/jivcic.jpg" alt="kebab-pui" width="150px">
+    <h4>Jivcic</h4>
+    <p>Preț: 60 MDL</p>
+    <h5>180 gr./40 gr.</h5>
+    <button onclick="addToCart('Jivcic' , 60)">Adaugă în Coș</button>
+</div>
+<div class="product">
+    <img src="img/cozel bruna.jpg" alt="kebab-pui" width="150px">
+    <h4>Kozel beer</h4>
+    <p>Preț: 60 MDL</p>
+    <h5>180 gr./40 gr.</h5>
+    <button onclick="addToCart('Kozel ', 10)">Adaugă în Coș</button>
+</div>
+ </div>
+</div>
+        
+
+
+    <!-- cafea -->
+ <div class="products">
+    <h2> Cafea </h2>
+    <div class="products-container">
+        <div class="product">
+            <img src="img/bauturi.jpg" alt="kebab-pui" width="150px"class="product-image">
+            <h4>Americano</h4>
+            <p>Preț: 35 MDL</p>
+            <h5>100 gr./40 gr.</h5>
+            <button onclick="addToCart('Băutură 1', 10)">Adaugă în Coș</button>
+        </div>
+        <div class="product">
+            <img src="img/bauturi.jpg" alt="kebab-pui" width="150px"class="product-image">
+            <h4>Americano</h4>
+            <p>Preț: 35 MDL</p>
+            <h5>180 gr.</h5>
+            <button onclick="addToCart('Băutură 2', 10)">Adaugă în Coș</button>
+        </div>
+        <div class="product">
+            <img src="img/bauturi.jpg" alt="kebab-pui" width="150px"class="product-image">
+            <h4>Americano</h4>
+            <p>Preț: 69 MDL</p>
+            <h5>180 gr./40 gr.</h5>
+            <button onclick="addToCart('Băutură 3', 10)">Adaugă în Coș</button>
+        </div>
+        <div class="product">
+            <img src="img/bauturi.jpg" alt="kebab-pui" width="150px"class="product-image">
+            <h4>Americano</h4>
+            <p>Preț: 60 MDL</p>
+            <h5>180 gr./40 gr.</h5>
+            <button onclick="addToCart('Băutură 4', 10)">Adaugă în Coș</button>
+        </div>
+        <div class="product">
+            <img src="img/bauturi.jpg" alt="kebab-pui" width="150px"class="product-image">
+            <h4>Americano</h4>
+            <p>Preț: 60 MDL</p>
+            <h5>180 gr./40 gr.</h5>
+            <button onclick="addToCart('Băutură 5', 10)">Adaugă în Coș</button>
+        </div>
+    </div>
+        </div>
+    </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+    <!-- Secțiune Informativă -->
+<div class="info-section">
+    <div class="info-header">
+        <h2>Informații Suplimentare</h2>
+    </div>
+    <div class="info-container">
+        <div class="info-card">
+            <h4>Despre Noi</h4>
+            <p>Suntem dedicați oferirii celor mai bune preparate, folosind ingrediente proaspete și rețete autentice.</p>
+        </div>
+    
+        <div class="info-card">
+            <h4>Program de lucru</h4>
+            <p><strong>Luni - Vineri:</strong> 08:00 - 22:00</p>
+            <p><strong>Sâmbătă - Duminică:</strong> 10:00 - 23:00</p>
+        </div>
+    
+        <div class="info-card">
+            <h4>Politici</h4>
+            <ul>
+                <li>Termeni și condiții</li>
+                <li>Politica de confidențialitate</li>
+                <li>Politica de retur</li>
+            </ul>
+        </div>
+    
+        <div class="info-card">
+            <h4>Metode de plată</h4>
+            <ul>
+                <li>Card bancar (Visa, MasterCard)</li>
+                <li>Ramburs la livrare</li>
+                <li>Transfer bancar</li>
+            </ul>
+        </div>
+    
+        <div class="info-card">
+            <h4>Informații livrare</h4>
+            <p>Livrăm în maxim 60 de minute în oraș.</p>
+            <p>Transport gratuit pentru comenzi de peste <strong>500 MDL</strong>.</p>
+        </div>
+    
+        <div class="info-card">
+            <h4>Contact</h4>
+            <p><strong>Telefon:</strong> +40 123 456 789</p>
+            <p><strong>Email:</strong> contact@exemplu.ro</p>
+            <p><strong>Adresă:</strong> Str. Exemplu 10, București</p>
+        </div>
+    </div>
+    
+    </div>
+    <div class="info-footer">
+        <p>Mulțumim că ne vizitezi!</p>
+    </div>
+</div>
+
+    <footer>
+        <img src="img/Group41.png" alt="Footer Image" class="footer-image"> <!-- Imaginea din footer -->
+    </footer>
+</body>
+</html>

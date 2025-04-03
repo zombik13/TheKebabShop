@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet " href="test1.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <title>Restaurant Meniu</title>
+</head>
+
+<body>
+    <!-- Header Image -->
+    <header>
+        <img src="img/Group 2.png" alt="Image Description" class="header-image">
+    </header>
+
+
+    <!-- overlay-->
+    <div class="overlay" style="display: none;"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">
+            <img src="img/LOGO.png" alt="Logo" class="logo">
+        </a>
+        <button class="burger-menu">=</button>
+        <button class="buton-meniu" onclick="location.href='#kebab'">Kebab</button>
+        <button class="buton-meniu" onclick="location.href='#burger'">Burger</button>
+        <button class="buton-meniu" onclick="location.href='#salate'">Salate</button>
+        <button class="buton-meniu" onclick="location.href='#cartofi'">Cartofi</button>
+        <button class="buton-meniu" onclick="location.href='#deserturi'">Deserturi</button>
+        <button class="buton-meniu" onclick="location.href='#bauturi'">Băuturi</button>
+        <button class="toggle-cart" id="toggle-cart">Coș</button>
+    </nav>
+
+    <!-- Info Section -->
+    <div class="info-block">
+        <div class="info-section">
+            <div class="info-header">
+                <h2>Cel mai bun Kebab</h2>
+            </div>
+            <div class="info-body">
+                <p>Descoperă cele mai bune preparate de kebab, gătite cu pasiune!</p>
+                <div class="image-container">
+                    <p class="aaa">Mulțumim că ne vizitezi!</p>
+                </div>
+            </div>
+            <div class="info-footer">
+                <div class="info-images">
+                    <p>Mulțumim că ne vizitezi!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Container -->
+    <div class="cart-container" id="cart" style="display: none;">
+        <h2>Coș de Cumpărături</h2>
+        <ul class="cart-items">
+            <!-- Items will be dynamically added here -->
+        </ul>
+        <div class="cart-total">
+            <strong>Total:</strong> <span id="total">0.00</span> MDL
+        </div>
+        <button id="close-cart">X</button>
+        <button id="empty-cart">Golește coșul</button>
+        <a href="checkout.html">
+            <button>Finalizează comanda</button>
+        </a>
+    </div>
+
+    <!-- Menu Section -->
+    <div class="menu">
+        <h1>Meniu</h1>
+    </div>
+
+    <!-- Product Sections: Kebab, Burger, Salate -->
+<div class="section-container">
+    <h2 id="kebab">Kebab</h2>
+    <div id="kebabSection"></div>
+
+    <h2 id="burger">Produse Burger</h2>
+    <div id="burgerSection"></div>
+
+    <h2 id="salata">Salate</h2>
+    <div id="salataSection"></div>
+
+    <h2 id="cartofi">Cartofi</h2>
+    <div id="cartofiSection"></div>
+
+    <h2 id="bowl">Bowl</h2>
+    <div id="bowlSection"></div>
+    
+    <h2 id="deserturi">Deserturi</h2>
+    <div id="deserturiSection"></div>
+
+    <h2 id="bauturi">Băuturi</h2>
+    <div id="bauturiSection"></div>
+</div>
+
+  
+<br><br>
+    <!-- Additional Information Section -->
+    <div class="info-section">
+        <div class="info-header">
+            <h2>Informații Suplimentare</h2>
+        </div>
+        <div class="info-container">
+            <div class="info-card">
+                <h4>Despre Noi</h4>
+                <p>Suntem dedicați oferirii celor mai bune preparate, folosind ingrediente proaspete și rețete autentice.</p>
+            </div>
+
+            <div class="info-card">
+                <h4>Program de lucru</h4>
+                <p><strong>Luni - Vineri:</strong> 08:00 - 22:00</p>
+                <p><strong>Sâmbătă - Duminică:</strong> 10:00 - 23:00</p>
+            </div>
+
+            <div class="info-card">
+                <h4>Politici</h4>
+                <ul>
+                    <li>Termeni și condiții</li>
+                    <li>Politica de confidențialitate</li>
+                    <li>Politica de retur</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h4>Metode de plată</h4>
+                <ul>
+                    <li>Card bancar (Visa, MasterCard)</li>
+                    <li>Ramburs la livrare</li>
+                    <li>Transfer bancar</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h4>Informații livrare</h4>
+                <p>Livrăm în maxim 60 de minute în oraș.</p>
+                <p>Transport gratuit pentru comenzi de peste <strong>500 MDL</strong>.</p>
+            </div>
+
+            <div class="info-card">
+                <h4>Contact</h4>
+                <p><strong>Telefon:</strong> +40 123 456 789</p>
+                <p><strong>Email:</strong> contact@exemplu.ro</p>
+                <p><strong>Adresă:</strong> Str. Exemplu 10, București</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <img src="img/Group41.png" alt="Footer Image" class="footer-image">
+    </footer>
+
+    <script src="test.js"></script>
+    <script src="test1.js"></script>
+</body>
+</html>
